@@ -13145,7 +13145,8 @@ textarea {
 .transition-fade .art-a {
     -webkit-transform: scale(1);
     transform: scale(1);
-    opacity: 1
+    opacity: 1;
+    border-radius: 5px;
 }
 
 .transition-fade .art-price.art-popular-price {
@@ -15933,7 +15934,6 @@ ul.cart_list li,ul.product_list_widget li {
 }
 
 .art-content .art-scroll-frame {
-    padding-top: 20px;
     padding-bottom: 20px
 }
 
@@ -16004,7 +16004,7 @@ ul.cart_list li,ul.product_list_widget li {
     }
 
     .footer {
-        margin-bottom: 200px
+        margin-bottom: 90px
     }
 
     .default--scrolling .footer {
@@ -16037,7 +16037,7 @@ ul.cart_list li,ul.product_list_widget li {
 
 .swiper-wrapper {
     position: relative;
-    width: 100%;
+    width: 50%;
     height: 100%;
     z-index: 1;
     display: -webkit-box;
@@ -16052,8 +16052,7 @@ ul.cart_list li,ul.product_list_widget li {
 }
 
 .swiper-container-android .swiper-slide,.swiper-wrapper {
-    -webkit-transform: translate3d(0,0,0);
-    transform: translate3d(0,0,0)
+    transition: transform 0.5s ease-in-out;
 }
 
 .swiper-container-multirow>.swiper-wrapper {
@@ -16069,6 +16068,7 @@ ul.cart_list li,ul.product_list_widget li {
 
 .swiper-slide {
     -ms-flex-negative: 0;
+    margin-right: 10px;
     flex-shrink: 0;
     width: 100%;
     height: 100%;
@@ -16631,4 +16631,7 @@ button.swiper-pagination-bullet {
 
 .swiper-container-coverflow .swiper-wrapper {
     -ms-perspective: 1200px
+}
+.progressbar-text{
+    padding: 0 5px!important;
 }

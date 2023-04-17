@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .recommendations-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+      .recommendations-slider {
+        position: relative;
+        width: 50%;
+        height: 400px;
+        overflow: hidden;
+      }
+      .slider-wrapper {
+        display: flex;
+        width: 300%;
+      }
+      .slider-item {
+        width: 33.33%;
+        position: relative;
+      }
+      .slider-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .slider-caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 20px;
+        display: none;
+      }
+      .slider-item:hover .slider-caption {
+        display: block;
+      }
+      .slider-caption h2 {
+        margin: 0;
+        font-size: 1.5em;
+      }
+      .slider-caption p {
+        margin: 0;
+      }
+      .slider-navigation {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+      }
+      .prev-button,
+      .next-button {
+        border: none;
+        background-color: white;
+        color: black;
+        padding: 10px;
+        margin: 10px;
+        cursor: pointer;
+      }
+      .recommendations-list {
+        width: 45%;
+      }
+      .recommendations-list ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      .recommendations-list li {
+        margin: 10px 0;
+        font-size: 1.2em;
+        cursor: pointer;
+      }
+      .recommendations-list li:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="recommendations-container">
+      <div class="recommendations-slider">
+        <div class="slider-wrapper">
+          <div class="slider-item">
+            <img src="https://arter.bslthemes.com/wp-content/uploads/2020/09/testimonial-2-280x280.jpg" alt="Recommendation 1" />
+            <div class="slider-caption">
+              <h2>Recommendation 1</h2>
+              <p>This is the first recommendation in the slider.</p>
+            </div>
+          </div>
+          <div class="slider-item">
+            <img src="https://arter.bslthemes.com/wp-content/uploads/2020/09/testimonial-2-280x280.jpg" alt="Recommendation 2" />
+            <div class="slider-caption">
+              <h2>Recommendation 2</h2>
+              <p>This is the second recommendation in the slider.</p>
+            </div>
+          </div>
+          <div class="slider-item">
+            <img src="https://arter.bslthemes.com/wp-content/uploads/2020/09/testimonial-2-280x280.jpg" alt="Recommendation 3" />
+            <div class="slider-caption">
+              <h2>Recommendation 3</h2>
+              <p>This is the third recommendation in the slider.</p>
+            </div>
+          </div>
+        </div>
+        <div class="slider-navigation">
+          <button class="prev-button">Prev</button>
+          <button class="next-button">Next</button>
+        </div>
+      </div>
+      
+    </div>
+    <script>
+      const sliderWrapper = document.querySelector(".slider-wrapper");
+      const prevButton = document.querySelector(".prev-button");
+      const nextButton = document.querySelector(".next-button");
+      const sliderItems = document.querySelectorAll(".slider-item");
+      let currentItem = 0;
+console.log(sliderItems)
+      prevButton.addEventListener("click", () => {
+        if (currentItem === 0) {
+          currentItem = sliderItems.length - 1;
+        } else {
+          currentItem--;
+        }
+        updateSlider();
+      });
+
+      nextButton.addEventListener("click", () => {
+        if (currentItem === sliderItems.length - 1) {
+          currentItem = 0;
+        } else {
+          currentItem++;
+        }
+        updateSlider();
+      });
+
+      function updateSlider() {
+        sliderWrapper.style.transform = `translateX(-${currentItem * 34}%)`;
+      }
+    </script>
+  </body>
+</html>
